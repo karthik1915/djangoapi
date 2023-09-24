@@ -1,0 +1,112 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="mb-5">
+  <h1>Requests:</h1>
+  view the json here:
+  <div class="list-group m-3">
+    <a class="list-group-item list-group-item-action" href="/api/images/">api</a>
+    <a class="list-group-item list-group-item-action"  href="/api/images/random/">random</a>
+  </div>
+</div>
+
+<h1>Documentation :</h1>
+<br />
+<h2>Endpoints</h2>
+
+<table class="table table-hover mb-5">
+  <thead>
+    <tr>
+      <th scope="col">S.No</th>
+      <th scope="col">url</th>
+      <th scope="col">function</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr>
+      <th scope="row">1</th>
+      <td><kbd>/images</kbd></td>
+      <td>Returns images</td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td><kbd>/images/random</kbd></td>
+      <td>Returns random Image</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<h2>Queries</h2>
+<p>This section contains Documentation of the images api</p>
+<table class="table table-hover mb-5">
+  <thead>
+    <tr>
+      <th scope="col">S.No</th>
+      <th scope="col">url</th>
+      <th scope="col">function</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr>
+      <th scope="row">1</th>
+      <td><kbd>/images?category=anime</kbd></td>
+      <td>Returns wallpapers</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td><kbd>/images?category=wallpapers-desktop</kbd></td>
+      <td>Returns desktop wallpapers</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td><kbd>/images?category=wallpapers</kbd></td>
+      <td>Returns wallpapers for mobiles</td>
+    </tr>
+  </tbody>
+</table>
+<div class="container-fluid">
+  <h1>Sample Json Responses</h1>
+  <p>The sample responses for each api call will look like</p>
+  <div class="codesection p-3">
+    <code
+      >{<br />
+      "id": 1,<br />
+      "title": "Zangetsu",<br />
+      "url":
+      "https://i.pinimg.com/564x/e7/ba/87/e7ba87334f93f9b83b2f447bdf271c39.jpg",
+      <br />"category": "anime", "tags": [ "dark", "lead", "anti-hero" ]<br />
+      },</code
+    >
+  </div>
+</div>
+
+<div class="mt-5 container-fluid">
+  <h1>Response Content</h1>
+  <h3>Random</h3>
+  <div class="card mb-3" style="max-width: 540px">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          src="{{ api_response.url }}"
+          class="img-fluid rounded-start"
+          alt="..."
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{api_response.title}}</h5>
+          <p class="card-text">
+            This is the response from the images random endpoint
+          </p>
+          <small class="text-body-secondary"
+            >Category : {{api_response.category}}</small
+          >
+          {% for tags in api_response.tags %}
+          <span class="badge bg-success">{{tags}}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="mb-5">
+  <h1>Requests:</h1>
+  view the json here:
+  <div class="list-group m-3">
+    <a class="list-group-item list-group-item-action" href="/api/posts/">api</a>
+    <a class="list-group-item list-group-item-action"  href="/api/posts/vent/">vents</a>
+    <a class="list-group-item list-group-item-action"  href="/api/posts/poem/">poems</a>
+    <a class="list-group-item list-group-item-action"  href="/api/posts/convo/">convo</a>
+  </div>
+</div>
+
+<h1>Documentation :</h1>
+
+<p>This section contains Documentation of the posts api</p>
+<table class="table table-hover mb-5">
+  <thead>
+    <tr>
+      <th scope="col">S.No</th>
+      <th scope="col">url</th>
+      <th scope="col">function</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr>
+      <th scope="row">1</th>
+      <td><kbd>/posts/vents</kbd></td>
+      <td>Returns some people vents</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td><kbd>/posts/poems</kbd></td>
+      <td>Returns poems</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td><kbd>/posts/convo</kbd></td>
+      <td>Returns some conversation among 2 people</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>View the posts from the Api</h3>
+<a class="link-offset-3 link-info" href="/api/posts/viewposts">🫶 here</a>
+
+
+{% endblock content %}

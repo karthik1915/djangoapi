@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="mt-5 container-fluid">
+    <h1 class="text-center">Posts</h1>
+    <div class="d-flex align-center justify-content-evenly flex-wrap">
+        {%for post in api_response%}
+        <div class="card mb-3 {% if post.type == 'vent' %}text-bg-light {% elif post.type == 'poems' %} text-bg-warning {% elif post.type == 'convo' %} text-bg-success  {% endif %}" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">{{post.content}}</p>
+            <h6 class="card-subtitle mb-2 fst-italic text-end"> - {{post.authorname}}</h6>
+                {% for i in post.tags %}
+                <div class="badge text-bg-secondary">
+                {{i}}
+                </div>
+                {% endfor %}
+        </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
